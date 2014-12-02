@@ -1,5 +1,6 @@
 require "tixriss/version"
+require 'nokogiri'
 
 module Tixriss
-  # Your code goes here...
+  autoload :Transformer, 'tixriss/transformer'
 end

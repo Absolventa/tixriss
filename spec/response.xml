@@ -1,0 +1,9 @@
+<response>
+  <api_key />
+  <method>links.list</method>
+  <answer>
+    <link url.from="http://www.google.de/" text="What a job platform!" url.to="http://www.absolventa.de/"/>
+    <link url.from="http://www.yahoo.de/" text="Look no further" url.to="http://www.absolventa.de/"/>
+  </answer>
+  <credits used="2" />
+</response>
