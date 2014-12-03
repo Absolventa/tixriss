@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+option_parser = OptionParser.new { |opts|
+  opts.banner = "Usage: tisriss [options]"
+
+  opts.separator ""
+  opts.on_tail("-h", "--help", "Show this help message") do
+    puts opts
+    exit
+  end
+}
+
+options = option_parser.parse!
+
+if ARGV.compact.empty?
+  puts option_parser.banner
+  exit 1
+end
