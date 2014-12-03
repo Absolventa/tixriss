@@ -2,19 +2,40 @@
 
 require 'optparse'
 
+options = {}
 option_parser = OptionParser.new { |opts|
   opts.banner = "Usage: tisriss [options]"
 
   opts.separator ""
+  opts.separator "Mandatory options:"
+
+  opts.on("-d", "--domain DOMAIN", "The requested domain name to get link data for") do |domain|
+    options[:domain] = domain
+  end
+
+  opts.on("-k", "--key KEY", "Your Sistrix API key") do |key|
+    options[:apikey] = key
+  end
+
+  opts.separator ""
+  opts.separator "Other options:"
+
+  opts.on("-f", "--file OUTPUTFILE", "Location for the generated report (Default: STDOUT)") do |file|
+    options[:file] = file
+  end
+
+  opts.on("-i", "--input INPUTFILE", "Use INPUTFILE instead of making an API call") do |file|
+    options[:input] = file
+  end
+
   opts.on_tail("-h", "--help", "Show this help message") do
     puts opts
     exit
   end
 }
-
-options = option_parser.parse!
+option_parser.parse!
 
 if ARGV.compact.empty?
-  puts option_parser.banner
+  puts option_parser
   exit 1
 end
