@@ -1,4 +1,4 @@
-# Tixriss
+# Tixriss [![Build Status](https://travis-ci.org/Absolventa/tixriss.svg?branch=master)](https://travis-ci.org/Absolventa/tixriss)
 
 TODO: Write a gem description
 
