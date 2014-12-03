@@ -43,7 +43,7 @@ describe 'the command line interface' do
   end
 
   def run_cli(input = '', args: [])
-    output, status = Open3.capture2("./bin/tisriss #{args.join(' ')}", stdin_data: '')
+    output, status = Open3.capture2("./bin/tixriss #{args.join(' ')}", stdin_data: '')
     [output, status.to_i]
   end
 end
