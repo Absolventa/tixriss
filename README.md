@@ -37,6 +37,9 @@ tixriss --help
 
 ### HEAD (not yet released)
 
+### v0.1.0
+* Initial working prototype
+
 ## Contributing
 
 1. Fork it ( https://github.com/Absolventa/tixriss/fork )
