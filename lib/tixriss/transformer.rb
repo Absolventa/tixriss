@@ -67,17 +67,14 @@ EOFOOTER
       end
     end
 
-    attr_reader :input, :output
+    attr_reader :input
 
-    def initialize(input: nil, output: nil)
-      @input  = input
-      @output = output
+    def initialize(input)
+      @input = input
     end
 
-    def write
-      html = HTML.new(input)
-      output_file.write html.to_s
-      output_file.close
+    def output
+      HTML.new(input).to_s
     end
 
     private
