@@ -29,6 +29,10 @@ option_parser = OptionParser.new { |opts|
     options[:input] = file.strip
   end
 
+  opts.on("-r", "--save-raw FILENAME", "Save API's XML response in FILENAME") do |file|
+    options[:source] = file.strip
+  end
+
   opts.on_tail("-h", "--help", "Show this help message") do
     puts opts
   end
@@ -48,6 +52,8 @@ unless input
   puts option_parser
   exit 1
 end
+
+File.open(options[:source], 'w+'){ |f| f.write input } if options[:source]
 
 transformer = Tixriss::Transformer.new(input)
 
