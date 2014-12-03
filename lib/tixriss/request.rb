@@ -1,3 +1,5 @@
+require 'net/http'
+
 module Tixriss
   class Request
     attr_reader :domain, :key
