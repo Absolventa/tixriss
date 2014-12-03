@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Tixriss::Transformer do
-  let(:input)  { File.join File.dirname(File.expand_path(__FILE__)), 'response.xml' }
+  let(:input)  { File.read(File.join File.dirname(File.expand_path(__FILE__)), 'response.xml') }
   let(:output) { './transformer.out.html' }
 
   subject { Tixriss::Transformer.new input: input, output: output }

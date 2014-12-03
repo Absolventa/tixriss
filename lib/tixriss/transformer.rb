@@ -75,7 +75,7 @@ EOFOOTER
     end
 
     def write
-      html = HTML.new(File.read input)
+      html = HTML.new(input)
       output_file.write html.to_s
       output_file.close
     end
