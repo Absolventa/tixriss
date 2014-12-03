@@ -22,7 +22,7 @@ describe Tixriss::Request do
   describe '#get' do
     before do
       get_parameters = "api_key=#{api_key}&domain=#{domain}"
-      stub_request(:get, "http://api.sistrix.de/links.list?#{get_parameters}").
+      stub_request(:get, "http://api.sistrix.net/links.list?#{get_parameters}").
         to_return(body: response)
     end
 
@@ -35,6 +35,7 @@ describe Tixriss::Request do
       WebMock.reset! # Makes webmock fail hard if another request is made
       subject.response.must_equal response
     end
+
   end
 
 end

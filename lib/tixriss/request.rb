@@ -15,7 +15,7 @@ module Tixriss
     end
 
     def uri
-      @uri ||= URI("http://api.sistrix.de/links.list?#{parameters}")
+      @uri ||= URI("http://api.sistrix.net/links.list?#{parameters}")
     end
 
     def parameters
