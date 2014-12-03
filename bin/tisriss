@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'tixriss'
 
 options = {}
 option_parser = OptionParser.new { |opts|
@@ -21,21 +22,38 @@ option_parser = OptionParser.new { |opts|
   opts.separator "Other options:"
 
   opts.on("-f", "--file OUTPUTFILE", "Location for the generated report (Default: STDOUT)") do |file|
-    options[:file] = file
+    options[:file] = file.strip
   end
 
   opts.on("-i", "--input INPUTFILE", "Use INPUTFILE instead of making an API call") do |file|
-    options[:input] = file
+    options[:input] = file.strip
   end
 
   opts.on_tail("-h", "--help", "Show this help message") do
     puts opts
-    exit
   end
 }
 option_parser.parse!
 
-if ARGV.compact.empty?
+input = if filename = options[:input]
+          File.read(filename)
+        end
+
+if !input && options[:domain] && options[:apikey]
+  request = Tixriss::Request.new(domain: options[:domain], key: options[:apikey])
+  input = request.get
+end
+
+unless input
   puts option_parser
   exit 1
 end
+
+transformer = Tixriss::Transformer.new(input)
+
+if filename = options[:file]
+  File.open(filename, 'w+') { |f| f.write transformer.output }
+else
+  STDOUT.puts transformer.output
+end
+
