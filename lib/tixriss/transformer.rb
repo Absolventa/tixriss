@@ -52,18 +52,14 @@ EOBODY
         <<-EOHEADER
 <html>
 <head>
-  <title>VAM-Berufe</title>
+  <title>Tixriss Report</title>
   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
-  <title>TODO: Title</title>
 </head>
 EOHEADER
       end
 
       def footer
-        <<-EOFOOTER
-</body>
-</html>
-EOFOOTER
+        '</html>'
       end
     end
 
