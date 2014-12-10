@@ -1,7 +1,10 @@
 language: ruby
 rvm:
-  - '2.0.0'
-  - '2.1.0'
+- 2.0.0
+- 2.1.0
 cache: bundler
 script:
-  - bundle exec rake test
+- bundle exec rake test
+notifications:
+  webhooks:
+    secure: kvOkYqDtjbFgAt8IoNJouRkud97gxMTl3G3hvz2CglaAXcM9R2AbVVIFIghBjmvsObrb85onNoVkwoXlAcheSww05Is1mhH+q4Fyz4jQ0MCKNh1UMT5ouSs3lF+d1+l2ScJAuFr8K0MA8sNLIwqZsODxIVQPyn8EGc08k3xUF2c=
